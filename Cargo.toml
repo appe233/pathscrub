@@ -1,0 +1,22 @@
+[package]
+name = "pathscrub"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+rust-version = "1.70"
+description = "Clean up $PATH: drop empty, relative, missing and duplicate entries"
+repository = "https://github.com/appe233/pathscrub"
+homepage = "https://github.com/appe233/pathscrub"
+readme = "README.md"
+keywords = ["path", "cli", "shell", "fish", "env"]
+categories = ["command-line-utilities"]
+exclude = ["/.github"]
+
+[dependencies]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
