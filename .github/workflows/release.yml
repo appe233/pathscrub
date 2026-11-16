@@ -63,7 +63,7 @@ jobs:
           ver="${GITHUB_REF_NAME#v}"
           awk -v v="$ver" '
             $0 ~ "^## \\[" v "\\]" {on=1; next}
-            on && /^## \[/ {exit}
+            on && /^(## )?\[/ {exit}
             on {print}
           ' CHANGELOG.md > notes.md
           gh release create "$GITHUB_REF_NAME" dist/* \
